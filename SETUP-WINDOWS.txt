@@ -1,0 +1,10 @@
+NEGOSYO READY OpenAI API
+
+1. Open CMD inside the negosyo-ready folder.
+2. npm install
+3. copy .env.example .env.local
+4. Edit .env.local and set OPENAI_API_KEY to your own secret API key.
+5. npm run dev
+6. Visit http://localhost:3000 and test with a sample PDF or image.
+
+OpenAI API billing/credits and internet required. Do not share the API key.
