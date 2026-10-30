@@ -212,7 +212,7 @@ Return ONLY a JSON object with these exact keys:
     const apiKey = process.env.OPENAI_API_KEY?.trim();
     if (!apiKey)
       return errorResponse(
-        "Set OPENAI_API_KEY in .env.local and restart the server.",
+        "OpenAI API key is not configured on the server.",
         503,
         "OPENAI_CONFIG",
       );
