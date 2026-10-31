@@ -4,6 +4,7 @@ import { Shell } from "@/components/shell";
 import { useStore } from "@/components/store";
 import { Heading, Notice, EmptyProfile } from "@/components/ui";
 import { dueDays } from "@/lib/data";
+import { TaxReminders } from "@/components/tax-reminders";
 function Content() {
   const { state } = useStore();
   if (!state.business)
@@ -22,6 +23,7 @@ function Content() {
         title="Renewal tracker"
         description="See document expiry dates you entered. Official renewal schedules must be confirmed separately."
       />
+      <TaxReminders />
       <div className="card">
         <h2 style={{ fontWeight: 800, fontSize: 20, marginBottom: 15 }}>
           Upcoming document dates

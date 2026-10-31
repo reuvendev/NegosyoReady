@@ -9,12 +9,13 @@ import {
   CalendarClock,
   Settings,
   Home,
-  BriefcaseBusiness,
   FileBadge,
   ScanSearch,
   BellRing,
 } from "lucide-react";
 import { StoreProvider, useStore } from "./store";
+import { ZoningGate } from "./zoning-gate";
+import { DueAlerts } from "./due-alerts";
 const links = [
   { href: "/dashboard", label: "Dashboard", Icon: LayoutDashboard },
   { href: "/requirements", label: "Requirements", Icon: ClipboardList },
@@ -44,7 +45,7 @@ function Inner({ children }: { children: React.ReactNode }) {
             padding: "8px 12px",
           }}
         >
-          <BriefcaseBusiness size={23} color="#1552ae" /> NEGOSYO READY
+          <img src="/negosyo-ready-logo.png" alt="" width={34} height={34} style={{objectFit:"contain"}} /> NEGOSYO READY
         </Link>
         <div className="muted small" style={{ padding: "0 12px 16px" }}>
           Business preparation workspace
@@ -73,7 +74,7 @@ function Inner({ children }: { children: React.ReactNode }) {
           </span>
         </div>
         {ready ? (
-          children
+          (!state.zoning || state.zoning.result.toUpperCase() !== "ALLOWED") && path !== "/settings" ? <><h1 className="section-heading">Zoning check required</h1><p className="muted">Upload an allowed BiZ Checker report on the homepage to continue.</p><Link className="btn" href="/">Go to homepage</Link></> : <><DueAlerts />{children}</>
         ) : (
           <div className="card muted" role="status">
             Loading your workspace…

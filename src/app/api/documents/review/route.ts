@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
         "INVALID_GROUP",
       );
     }
-    const expected = applicableDocuments(category).find(
+    const expected = expectedId === "auto" ? {id:"auto",title:"Automatic document identification",detail:"Identify the visible document type and any dates; do not assume category."} : applicableDocuments(category).find(
       (r) => r.id === expectedId,
     );
     if (!expected)

@@ -1,0 +1,1 @@
+export function inferCategory(s:string){const t=s.toLowerCase();if(/sari.sari|convenience/.test(t))return "Sari-sari Store";if(/coffee|caf[eé]/.test(t))return "Café / Coffee Shop";if(/restaurant|eatery|carinderia/.test(t))return "Eatery / Restaurant";if(/salon|barber|personal/.test(t))return "Personal Services";if(/retail|shop|store/.test(t))return "Retail Store";return "Other";}

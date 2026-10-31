@@ -5,6 +5,7 @@ import { Shell } from "@/components/shell";
 import { useStore } from "@/components/store";
 import { Heading, Notice } from "@/components/ui";
 import { categories, Business } from "@/lib/data";
+import { ZoningGate } from "@/components/zoning-gate";
 function Form() {
   const { state, save } = useStore();
   const router = useRouter();
@@ -19,6 +20,7 @@ function Form() {
   function change<K extends keyof Business>(key: K, value: Business[K]) {
     setForm((v) => ({ ...v, [key]: value }));
   }
+  if (!state.zoning) return <><Heading title="Check your location first" description="Upload a Baguio BiZ Checker report before checking requirements."/><ZoningGate /></>;
   return (
     <>
       <Heading

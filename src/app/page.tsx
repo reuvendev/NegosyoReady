@@ -1,3 +1,6 @@
+"use client";
+import {StoreProvider} from "@/components/store";
+import {ZoningGate} from "@/components/zoning-gate";
 import Link from "next/link";
 import {
   BriefcaseBusiness,
@@ -30,11 +33,9 @@ export default function Home() {
               gap: 9,
             }}
           >
-            <BriefcaseBusiness color="#1552ae" /> NEGOSYO READY
+            <img src="/negosyo-ready-logo.png" alt="" width={40} height={40} style={{objectFit:"contain"}} /> NEGOSYO READY
           </div>
-          <Link className="btn secondary" href="/dashboard">
-            Open workspace
-          </Link>
+          <Link className="btn secondary" href="/dashboard">Open workspace</Link>
         </div>
       </header>
       <section className="hero">
@@ -58,21 +59,7 @@ export default function Home() {
             A simpler way to prepare business requirements, organize document
             records, and keep track of your next steps.
           </p>
-          <div
-            style={{
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              marginTop: 30,
-            }}
-          >
-            <Link href="/onboarding" className="btn">
-              Get started <ArrowRight size={18} />
-            </Link>
-            <Link href="/dashboard" className="btn ghost">
-              View dashboard
-            </Link>
-          </div>
+          <div style={{marginTop:30}}><StoreProvider><ZoningGate /></StoreProvider></div>
           <p className="muted small" style={{ marginTop: 24 }}>
             Independent hackathon prototype. Not affiliated with or endorsed by
             Baguio City Government.
@@ -132,9 +119,9 @@ export default function Home() {
           </h2>
           <div className="grid3">
             {[
-              "Tell us about your business",
-              "Review your preparation checklist",
-              "Track documents and upcoming dates",
+              "Check your business location",
+              "Upload an allowed zoning report",
+              "Open your personalized dashboard",
             ].map((x, i) => (
               <div key={x}>
                 <span className="pill">Step {i + 1}</span>

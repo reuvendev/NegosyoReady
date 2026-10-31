@@ -23,6 +23,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         const obj = JSON.parse(raw);
         setState({
           business: obj.business ?? null,
+          zoning: obj.zoning ?? null,
+          taxReminders: Array.isArray(obj.taxReminders) ? obj.taxReminders : [],
           completed: Array.isArray(obj.completed) ? obj.completed : [],
           inspection: Array.isArray(obj.inspection) ? obj.inspection : [],
           documents: Array.isArray(obj.documents) ? obj.documents : [],

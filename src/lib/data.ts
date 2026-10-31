@@ -1,3 +1,5 @@
+export type ZoningReport = { businessType: string; location: string; zone: string; result: string; conditions: string[]; tips?: string[]; generatedAt: string; sourceFile: string; reviewedAt: string };
+export type TaxReminder = { id: string; title: string; dueDate: string; source: string; frequency?: "once" | "quarterly" | "annual" };
 export type Business = {
   name: string;
   category: string;
@@ -47,6 +49,8 @@ export type PhotoReview = {
 };
 export type State = {
   business: Business | null;
+  zoning?: ZoningReport | null;
+  taxReminders?: TaxReminder[];
   completed: string[];
   inspection: string[];
   documents: DocumentRecord[];
@@ -55,6 +59,8 @@ export type State = {
 export const KEY = "negosyo-ready-phase1-v1";
 export const initial: State = {
   business: null,
+  zoning: null,
+  taxReminders: [],
   completed: [],
   inspection: [],
   documents: [],
