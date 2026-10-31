@@ -677,3 +677,14 @@ button {
 .requirement-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 14px 20px; border-top: 1px solid #e2e8f0; }
 .requirement-footer p { color: #64748b; font-size: 11px; line-height: 1.5; margin: 0; max-width: 330px; }
 @media (max-width: 650px) { .requirement-grid { grid-template-columns: 1fr; padding: 12px; gap: 10px; } .requirement-intro { padding: 16px; } .requirement-panel { padding: 14px; } .requirement-footer { align-items: flex-start; } }
+
+/* Actionable next steps for document review findings */
+.document-fix-panel { margin-top: 16px; border: 1px solid #bfdbfe; border-radius: 14px; padding: 16px; background: #f8fbff; color: #1e293b; }
+.document-fix-panel h4 { margin: 0 0 6px; font-size: 1rem; }
+.document-fix-panel > p { margin: 0 0 12px; }
+.document-fix-item { background: #fff; border: 1px solid #dbeafe; border-radius: 10px; padding: 12px 14px; margin-top: 10px; }
+.document-fix-item strong { display: block; margin-bottom: 7px; }
+.document-fix-item ol { padding-left: 21px; margin: 0 0 8px; }
+.document-fix-item li { margin: 5px 0; line-height: 1.5; }
+.document-fix-link { color: #1d4ed8 !important; text-decoration: underline !important; text-underline-offset: 3px; font-weight: 600; }
+.document-fix-link:hover { color: #1e40af !important; }

@@ -12,6 +12,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { Shell } from "@/components/shell";
+import { getDocumentFixes } from "@/lib/document-actions";
 import { useStore } from "@/components/store";
 import { Heading, Notice, EmptyProfile } from "@/components/ui";
 import {
@@ -628,6 +629,19 @@ function Content() {
                         </p>
                       )}
                     </div>
+                    {getDocumentFixes(record, days !== null && days < 0).length > 0 && (
+                      <section className="document-fix-panel" aria-label="How to fix document issues">
+                        <h4>How to fix these issues</h4>
+                        <p className="muted small">Follow these steps, then upload a corrected or renewed document. These are suggestions, not official approval instructions.</p>
+                        {getDocumentFixes(record, days !== null && days < 0).map((fix, index) => (
+                          <div className="document-fix-item" key={`${index}-${fix.title}`}>
+                            <strong>{fix.title}</strong>
+                            <ol>{fix.steps.map((step, stepIndex) => <li key={stepIndex}>{step}</li>)}</ol>
+                            {fix.url && <a className="document-fix-link" href={fix.url} target="_blank" rel="noopener noreferrer">{fix.linkLabel || "Official government resource"} ↗</a>}
+                          </div>
+                        ))}
+                      </section>
+                    )}
                     {record.review.fieldsFound.length > 0 && (
                       <p className="muted small">
                         Visible field labels:{" "}
