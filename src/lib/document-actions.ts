@@ -13,7 +13,9 @@ const groups: Record<string, { name: string; agency: string; url: string; linkLa
 
 export function getDocumentFixes(record: DocumentRecord, expired: boolean): FixAction[] {
   const actions: FixAction[] = [];
-  const group = groups[record.requirementId];
+  const group = record.requirementId
+    ? groups[record.requirementId]
+    : undefined;
   const review = record.review;
   if (expired) {
     const isNbi = /nbi\s*clearance/i.test(review?.detectedType || "");
