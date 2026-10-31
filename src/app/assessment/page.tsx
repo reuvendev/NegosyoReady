@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { RequirementDetails } from "@/components/requirement-details";
 import { Shell } from "@/components/shell";
 import { useStore } from "@/components/store";
 import { EmptyProfile, Heading, Notice } from "@/components/ui";
@@ -156,6 +157,7 @@ function Content() {
               >
                 {step.detail}
               </span>
+              <RequirementDetails item={step} />
               <span className="pill" style={{ marginTop: 8 }}>
                 {state.completed.includes(step.id)
                   ? "Marked prepared"

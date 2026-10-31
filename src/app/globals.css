@@ -646,3 +646,34 @@ button {
   color: #154a9a;
   margin: 10px 0;
 }
+
+/* Readable, scan-friendly requirement guides */
+.requirement-details { margin-top: 12px; }
+.requirement-toggle { display: inline-flex; align-items: center; gap: 10px; }
+.requirement-guide { margin-top: 14px; border: 1px solid #d9e4f2; border-radius: 16px; overflow: hidden; background: #fff; color: #1e293b; }
+.requirement-intro { padding: 20px; background: #f5f9ff; border-bottom: 1px solid #dce8f7; }
+.requirement-eyebrow { display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em; color: #2563eb; margin-bottom: 8px; }
+.requirement-intro > p { font-size: 14px; line-height: 1.65; margin: 0 0 16px; max-width: 75ch; }
+.requirement-office { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; background: white; border: 1px solid #dce8f7; }
+.requirement-office > span { color: #2563eb; font-size: 20px; line-height: 1.2; }
+.requirement-office div { display: grid; gap: 2px; }
+.requirement-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .04em; }
+.requirement-office strong { font-size: 13px; line-height: 1.5; }
+.requirement-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; padding: 18px; }
+.requirement-panel { border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; min-width: 0; }
+.requirement-panel-heading { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.requirement-panel-heading h4 { font-size: 15px; font-weight: 750; margin: 0; }
+.requirement-panel-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: #eaf2ff; color: #1d4ed8; font-weight: 800; flex: none; }
+.requirement-checklist, .requirement-steps { padding: 0; margin: 0; list-style: none; display: grid; gap: 13px; }
+.requirement-checklist li, .requirement-steps li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.6; }
+.requirement-check { width: 15px; height: 15px; flex: none; border: 1.5px solid #94a3b8; border-radius: 4px; margin-top: 3px; }
+.requirement-step-number { display: grid; place-items: center; width: 23px; height: 23px; flex: none; background: #eaf2ff; color: #1d4ed8; border-radius: 50%; font-size: 12px; font-weight: 800; }
+.requirement-resources { border-top: 1px solid #e2e8f0; padding: 17px 20px; }
+.requirement-resources h4 { font-size: 14px; margin: 0 0 3px; }
+.requirement-resources p { font-size: 12px; color: #64748b; margin: 0 0 10px; }
+.requirement-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.requirement-links a { color: #2563eb !important; text-decoration: underline !important; text-underline-offset: 3px; font-size: 13px; font-weight: 650; }
+.requirement-links a:hover { color: #1e40af !important; }
+.requirement-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 14px 20px; border-top: 1px solid #e2e8f0; }
+.requirement-footer p { color: #64748b; font-size: 11px; line-height: 1.5; margin: 0; max-width: 330px; }
+@media (max-width: 650px) { .requirement-grid { grid-template-columns: 1fr; padding: 12px; gap: 10px; } .requirement-intro { padding: 16px; } .requirement-panel { padding: 14px; } .requirement-footer { align-items: flex-start; } }

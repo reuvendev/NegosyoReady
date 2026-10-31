@@ -1,4 +1,5 @@
 "use client";
+import { RequirementDetails } from "@/components/requirement-details";
 import { Shell } from "@/components/shell";
 import { useStore } from "@/components/store";
 import { Heading, Notice, EmptyProfile, Meter } from "@/components/ui";
@@ -36,8 +37,9 @@ function Content() {
         <Meter value={Math.round((done / items.length) * 100)} />
         <div style={{ marginTop: 18 }}>
           {items.map((i) => (
-            <label className="checkrow" key={i.id}>
+            <div className="checkrow" key={i.id}>
               <input
+                aria-label={`Mark ${i.title} prepared`}
                 type="checkbox"
                 checked={state.completed.includes(i.id)}
                 onChange={(e) =>
@@ -57,8 +59,9 @@ function Content() {
                 >
                   {i.detail}
                 </span>
+                <RequirementDetails item={i} />
               </span>
-            </label>
+            </div>
           ))}
         </div>
       </div>
