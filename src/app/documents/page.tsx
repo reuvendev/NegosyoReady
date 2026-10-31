@@ -33,12 +33,6 @@ function Content() {
       <div className="progress" aria-label="Document coverage"><div style={{width:`${coverage.length ? uploaded / coverage.length * 100 : 0}%`}} /></div>
       <p className="muted small" style={{marginTop:12}}>Uploaded records and automated checks do not confirm official validity or approval.</p>
     </div>
-    <section className="card" style={{marginTop:18}}>
-      <h2 className="section-heading">Document checklist</h2>
-      <p className="muted small" style={{marginTop:7,marginBottom:16}}>For {category}. Confirm requirements with the responsible offices.</p>
-      {coverage.map(({need,status})=><div key={need.id} className="document-row"><div className="document-row-head"><strong>{need.title}</strong><span className={`doc-badge doc-${status}`}>{documentStatusLabel(status)}</span></div><p className="muted small" style={{marginTop:6}}>{need.detail}</p></div>)}
-      <p className="muted small" style={{marginTop:16}}>See <Link className="inline-link" href="/requirements">Requirements</Link> for more guidance.</p>
-    </section>
       <section className="card" style={{ marginTop: 18 }}>
         <div className="summary-heading">
           <h2 className="section-heading">

@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "sourceUrl": "https://REPLACE-WITH-VERIFIED-OFFICIAL-SOURCE",
+    "verifiedAt": "YYYY-MM-DD",
+    "ordinance": "Verified ordinance and amendments"
+  },
+  "zones": {
+    "R-1": {
+      "label": "Example only - low density residential",
+      "businesses": {
+        "sari_sari": {
+          "status": "CONDITIONAL",
+          "reason": "EXAMPLE ONLY: replace with a legally reviewed, cited use classification.",
+          "conditions": ["EXAMPLE ONLY: replace with official conditions."],
+          "reference": "EXAMPLE ONLY: official section citation required"
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,11 @@
 "use client";
 import {StoreProvider} from "@/components/store";
-import {ZoningGate} from "@/components/zoning-gate";
+import {ZoningWizard} from "@/components/zoning-wizard";
 import Link from "next/link";
 import {
-  BriefcaseBusiness,
   ClipboardCheck,
   FileCheck2,
   CalendarClock,
-  ArrowRight,
 } from "lucide-react";
 export default function Home() {
   return (
@@ -59,7 +57,7 @@ export default function Home() {
             A simpler way to prepare business requirements, organize document
             records, and keep track of your next steps.
           </p>
-          <div style={{marginTop:30}}><StoreProvider><ZoningGate /></StoreProvider></div>
+          <div style={{marginTop:30}}><StoreProvider><ZoningWizard /></StoreProvider></div>
           <p className="muted small" style={{ marginTop: 24 }}>
             Independent hackathon prototype. Not affiliated with or endorsed by
             Baguio City Government.
@@ -120,7 +118,7 @@ export default function Home() {
           <div className="grid3">
             {[
               "Check your business location",
-              "Upload an allowed zoning report",
+              "Get a map-based result or review a zoning PDF",
               "Open your personalized dashboard",
             ].map((x, i) => (
               <div key={x}>

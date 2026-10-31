@@ -5,7 +5,7 @@ import {useStore} from "@/components/store";
 import type {ZoningReport, Business} from "@/lib/data";
 import {inferCategory} from "@/lib/zoning-category";
 
-export function ZoningGate({compact=false}:{compact?:boolean}){
+export function ZoningGate(){
  const {state,save}=useStore();const router=useRouter();
  const [file,setFile]=useState<File|null>(null);const [busy,setBusy]=useState(false);const [error,setError]=useState("");const [drag,setDrag]=useState(false);const ref=useRef<HTMLInputElement>(null);
  const z=state.zoning;const allowed=z?.result?.toUpperCase()==="ALLOWED";
@@ -21,7 +21,7 @@ export function ZoningGate({compact=false}:{compact?:boolean}){
  }catch(e){setError(e instanceof Error?e.message:"Unable to read report")}finally{setBusy(false)}}
  return <div className="card stack" style={{maxWidth:780}}>
  <div><h2 className="section-heading">Check if your business is allowed in this location</h2><p className="muted small">Start with Baguio BiZ Checker. Download its zoning PDF, then upload the report here to check the result and set up your business profile.</p></div>
- <a className="btn" href="https://bizchecker.online/zoning" target="_blank" rel="noopener noreferrer">Check zoning with BiZ Checker ↗</a>
+ <a className="btn secondary" href="https://bizchecker.online/zoning" target="_blank" rel="noopener noreferrer">Check zoning with BiZ Checker ↗</a>
  <div role="button" tabIndex={0} onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ref.current?.click()}}} onClick={()=>ref.current?.click()} onDragOver={e=>{e.preventDefault();setDrag(true)}} onDragLeave={()=>setDrag(false)} onDrop={e=>{e.preventDefault();setDrag(false);choose(e.dataTransfer.files[0])}} style={{border:`2px dashed ${drag?"#2563eb":"#a8b8d0"}`,borderRadius:14,padding:24,textAlign:"center",cursor:"pointer",background:"#f6f9ff"}}>
  <strong>Drag and drop your zoning PDF</strong><p className="muted small">or click to choose · PDF only · max 8 MB</p><input ref={ref} type="file" accept="application/pdf,.pdf" hidden onChange={e=>choose(e.target.files?.[0])}/>{file&&<p style={{fontWeight:700}}>{file.name}</p>}
  </div>

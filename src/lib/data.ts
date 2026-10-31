@@ -1,4 +1,18 @@
-export type ZoningReport = { businessType: string; location: string; zone: string; result: string; conditions: string[]; tips?: string[]; generatedAt: string; sourceFile: string; reviewedAt: string };
+export type ZoningReport = {
+  businessType: string;
+  location: string;
+  zone: string;
+  result: string;
+  explanation?: string;
+  conditions: string[];
+  tips?: string[];
+  generatedAt: string;
+  sourceFile: string;
+  reviewedAt: string;
+  isSimulation?: boolean;
+  barangay?: string;
+  coordinates?: { lat: number; lng: number };
+};
 export type TaxReminder = { id: string; title: string; dueDate: string; source: string; frequency?: "once" | "quarterly" | "annual" };
 export type Business = {
   name: string;

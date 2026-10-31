@@ -14,7 +14,6 @@ import {
   BellRing,
 } from "lucide-react";
 import { StoreProvider, useStore } from "./store";
-import { ZoningGate } from "./zoning-gate";
 import { DueAlerts } from "./due-alerts";
 const links = [
   { href: "/dashboard", label: "Dashboard", Icon: LayoutDashboard },
@@ -30,6 +29,9 @@ const links = [
 function Inner({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   const { state, ready } = useStore();
+  const canOpenWorkspace =
+    state.zoning?.isSimulation === true ||
+    state.zoning?.result?.toUpperCase() === "ALLOWED";
   return (
     <div className="shell">
       <aside className="sidebar">
@@ -74,7 +76,7 @@ function Inner({ children }: { children: React.ReactNode }) {
           </span>
         </div>
         {ready ? (
-          (!state.zoning || state.zoning.result.toUpperCase() !== "ALLOWED") && path !== "/settings" ? <><h1 className="section-heading">Zoning check required</h1><p className="muted">Upload an allowed BiZ Checker report on the homepage to continue.</p><Link className="btn" href="/">Go to homepage</Link></> : <><DueAlerts />{children}</>
+          !canOpenWorkspace && path !== "/settings" ? <><h1 className="section-heading">Zoning check required</h1><p className="muted">Complete the zoning checker or upload an allowed BiZ Checker report on the homepage to continue.</p><Link className="btn" href="/">Go to homepage</Link></> : <><DueAlerts />{children}</>
         ) : (
           <div className="card muted" role="status">
             Loading your workspace…

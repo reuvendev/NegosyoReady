@@ -52,3 +52,12 @@ The visual criteria are **illustrative** and must be validated with official Bag
 - Successful AI establishment photo reviews save text findings and timestamps (up to 12 reviews) to browser storage; photo files are NOT saved.
 - Browser storage is device-specific and is not a secure production document vault. The user must re-upload photos for another analysis.
 - Scores are preparation indicators, not regulatory compliance certifications. Requirements remain illustrative.
+
+
+## Pin-based zoning eligibility (current limitations)
+
+The homepage zoning wizard now supports real geometry-and-rule evaluation, instead of asking OpenAI to guess. Install the CPDSO-authorized zoning polygon data and matched ordinance rule matrix as described in [`data/README.md`](data/README.md) to receive map-based ALLOWED / CONDITIONAL / NOT ALLOWED checks. **These datasets are not included**, so the default status is NOT VERIFIED. This is intentional. OpenStreetMap shows streets, not legal zoning permissions.
+
+As an alternative, a business owner may check the official-source [BiZ Checker](https://bizchecker.online/zoning), export its PDF report, and upload it directly in Step 5. OpenAI reads the report; the owner checks the location and business and saves the extracted verdict. PDF content is not independently authenticated by this prototype.
+
+The project does not have access to the BiZ Checker private API or its official GIS records, and it cannot issue locational clearances, accept official city applications, or track CPDSO case statuses.

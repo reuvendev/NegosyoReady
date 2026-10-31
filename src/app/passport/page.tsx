@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Shell } from "@/components/shell";
 import { useStore } from "@/components/store";
 import { EmptyProfile, Heading, Meter, Notice } from "@/components/ui";
-import { applicable, dueDays } from "@/lib/data";
+import { dueDays } from "@/lib/data";
 import { documentStatusLabel } from "@/lib/documents";
 import { readinessFor } from "@/lib/readiness";
 
@@ -116,6 +116,66 @@ function Content() {
           inspection.
         </p>
       </div>
+      {state.zoning && (
+        <div className="card" style={{ marginBottom: 18 }}>
+          <div className="summary-heading">
+            <div>
+              <div className="muted small">Saved zoning check</div>
+              <h2
+                className="section-heading"
+                style={{
+                  marginTop: 6,
+                  color:
+                    state.zoning.result.toUpperCase() === "ALLOWED"
+                      ? "#166534"
+                      : undefined,
+                }}
+              >
+                {state.zoning.result.toUpperCase()}
+              </h2>
+              {state.zoning.isSimulation && (
+                <div className="muted small">
+                  Simulation only · Not an official CPDSO determination
+                </div>
+              )}
+            </div>
+          </div>
+          <p>
+            <strong>Business:</strong> {state.zoning.businessType}
+          </p>
+          <p>
+            <strong>Location:</strong> {state.zoning.location}
+          </p>
+          <p>
+            <strong>Zone:</strong> {state.zoning.zone}
+          </p>
+          {state.zoning.explanation && <p>{state.zoning.explanation}</p>}
+          {state.zoning.conditions.length > 0 &&
+            !(
+              state.zoning.isSimulation &&
+              state.zoning.result.toUpperCase() === "ALLOWED"
+            ) && (
+            <>
+              <strong>Conditions to verify</strong>
+              <ul className="feature-list">
+                {state.zoning.conditions.map((condition, index) => (
+                  <li key={`${condition}-${index}`}>{condition}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {(state.zoning.tips?.length ?? 0) > 0 && (
+            <>
+              <strong>Next steps</strong>
+              <ul className="feature-list">
+                {state.zoning.tips?.map((tip, index) => (
+                  <li key={`${tip}-${index}`}>{tip}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      )}
       <div className="grid3" style={{ marginBottom: 18 }}>
         <div className="card">
           <div className="muted small">Preparation steps</div>
@@ -289,7 +349,7 @@ function Content() {
       </div>
       <Notice />
       <p className="muted small" style={{ marginTop: 14 }}>
-        Demo passport stored in this browser. It is not an LGU-issued
+        Passport data is stored in this browser. It is not an LGU-issued
         certificate or proof of legal compliance.
       </p>
     </>
