@@ -68,9 +68,6 @@ function Inner({ children }: { children: React.ReactNode }) {
       </aside>
       <main className="main">
         <div className="topbar">
-          <span className="tag">
-            Hackathon demo · Not an official government service
-          </span>
           <span className="muted small">
             {state.business?.name || "No business profile"}
           </span>
