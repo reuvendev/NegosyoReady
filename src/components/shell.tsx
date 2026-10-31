@@ -12,11 +12,13 @@ import {
   BriefcaseBusiness,
   FileBadge,
   ScanSearch,
+  BellRing,
 } from "lucide-react";
 import { StoreProvider, useStore } from "./store";
 const links = [
   { href: "/dashboard", label: "Dashboard", Icon: LayoutDashboard },
   { href: "/requirements", label: "Requirements", Icon: ClipboardList },
+  { href: "/updates", label: "Compliance updates", Icon: BellRing },
   { href: "/assessment", label: "Readiness assessment", Icon: ScanSearch },
   { href: "/passport", label: "Compliance passport", Icon: FileBadge },
   { href: "/documents", label: "Documents", Icon: Files },

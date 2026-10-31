@@ -17,7 +17,7 @@ export function RequirementDetails({ item }: { item: Item }) {
         <div className="requirement-intro">
           <span className="requirement-eyebrow">QUICK GUIDE</span>
           <p>{guide.overview}</p>
-          <div className="requirement-office"><span aria-hidden="true">▣</span><div><span className="requirement-label">Responsible office</span><strong>{guide.agency}</strong></div></div>
+          <div className="requirement-office"><span aria-hidden="true">▣</span><div><span className="requirement-label">Where to Go</span><strong>{guide.agency}</strong></div></div>
         </div>
         <div className="requirement-grid">
           <section className="requirement-panel" aria-label="What to prepare">
@@ -33,7 +33,7 @@ export function RequirementDetails({ item }: { item: Item }) {
           <div><h4>Official resources</h4><p>Open the government website to confirm current requirements.</p></div>
           <div className="requirement-links">{guide.source.map(s => <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">{s.label} <span aria-hidden="true">↗</span></a>)}</div>
         </div>
-        <div className="requirement-footer"><Link href="/documents" className="btn secondary">View related documents <span aria-hidden="true">→</span></Link><p>Requirements can change. Always confirm with the responsible office.</p></div>
+        <div className="requirement-footer"><Link href="/documents" className="btn secondary">View My Documents <span aria-hidden="true">→</span></Link><p>Requirements can change. Always confirm with the responsible office.</p></div>
       </div>}
     </div>
   );

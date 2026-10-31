@@ -576,7 +576,7 @@ function Content() {
                   <div className="review-box">
                     <div className="result-heading">
                       <span className="result-kicker">
-                        AI DOCUMENT ASSESSMENT
+                        DOCUMENT CHECK RESULTS
                       </span>
                       <span
                         className={`result-pill ${record.review.status === "appears_complete" && record.review.matchExpected === "matches" && !(days !== null && days < 0) ? "result-good" : "result-warning"}`}
@@ -596,16 +596,16 @@ function Content() {
                       verification or approval.
                     </p>
                     <p>
-                      <strong>Detected document:</strong>{" "}
+                      <strong>Document Found:</strong>{" "}
                       {record.review.detectedType}
                     </p>
                     <p>
-                      <strong>Document-type match:</strong>{" "}
+                      <strong>Document Category:</strong>{" "}
                       {record.review.matchExpected === "matches"
                         ? "Appears to match"
                         : record.review.matchExpected === "mismatch"
-                          ? "Different from selected group"
-                          : "Uncertain / not verified"}
+                          ? "Wrong Document Category"
+                          : "Not confirmed"}
                     </p>
                     <p>{record.review.explanation}</p>
                     <div
@@ -613,7 +613,7 @@ function Content() {
                     >
                       <h4>
                         {record.review.issues.length
-                          ? "Potential concerns"
+                          ? "Issues Found"
                           : "No obvious missing fields reported"}
                       </h4>
                       {record.review.issues.length ? (
@@ -631,7 +631,7 @@ function Content() {
                     </div>
                     {getDocumentFixes(record, days !== null && days < 0).length > 0 && (
                       <section className="document-fix-panel" aria-label="How to fix document issues">
-                        <h4>How to fix these issues</h4>
+                        <h4>How to Fix This</h4>
                         <p className="muted small">Follow these steps, then upload a corrected or renewed document. These are suggestions, not official approval instructions.</p>
                         {getDocumentFixes(record, days !== null && days < 0).map((fix, index) => (
                           <div className="document-fix-item" key={`${index}-${fix.title}`}>
@@ -649,7 +649,7 @@ function Content() {
                       </p>
                     )}
                     <p className="muted small">
-                      AI reviewed:{" "}
+                      Checked on:{" "}
                       {new Date(record.review.reviewedAt).toLocaleString()}
                     </p>
                   </div>
@@ -657,7 +657,7 @@ function Content() {
                   <div className="result-unchecked">
                     <strong>NOT YET CHECKED</strong>
                     <p>
-                      No full AI review has been completed. Extracted dates
+                      No full document check has been completed. Extracted dates
                       alone do not establish whether this document is good.
                     </p>
                   </div>
